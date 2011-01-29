@@ -1,0 +1,10 @@
+#summary Schema welcome page, used as namespace identifier in xml files
+
+= Introduction =
+
+This page should describe the eforceconfig XML schema. 
+
+
+= Details =
+
+Add content here.
