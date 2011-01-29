@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cfg="http://code.google.com/p/eforceconfig/wiki/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           id="cfg"
+           targetNamespace="http://code.google.com/p/eforceconfig/wiki/XMLSchema"
+           xmlns="http://code.google.com/p/eforceconfig/wiki/XMLSchema">
+ <xs:simpleType name="parameterType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="list"/>
+   <xs:enumeration value="table"/>
+   <xs:enumeration value="string"/>
+  </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="bindingType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="basic"/>
+   <xs:enumeration value="named"/>
+  </xs:restriction>
+ </xs:simpleType>
+ <xs:complexType name="value">
+  <xs:simpleContent>
+   <xs:extension base="xs:string">
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="value" type="xs:string"/>
+   </xs:extension>
+  </xs:simpleContent>
+ </xs:complexType>
+ <xs:complexType name="parameter" mixed="true">
+  <xs:sequence>
+   <xs:element name="value" type="value" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+    <xs:attribute name="name" use="required" type="xs:string"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="type" type="parameterType"/>
+ </xs:complexType>
+ <xs:complexType name="statement">
+  <xs:simpleContent>
+   <xs:extension base="xs:string">
+    <xs:attribute name="name" use="required" type="xs:string"/>
+    <xs:attribute name="cached" type="xs:boolean"/>
+    <xs:attribute name="binding-type" type="bindingType"/>
+   </xs:extension>
+  </xs:simpleContent>
+ </xs:complexType>
+ <xs:complexType name="component">
+  <xs:sequence>
+   <xs:element name="parameters" minOccurs="0">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="parameter" type="parameter" maxOccurs="unbounded"/>
+     </xs:sequence>
+    </xs:complexType>
+    <xs:key name="component-parameter">
+     <xs:selector xpath="cfg:parameter"/>
+     <xs:field xpath="@name"/>
+    </xs:key>
+   </xs:element>
+   <xs:element name="sql" minOccurs="0">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="statement" type="statement" maxOccurs="unbounded"/>
+     </xs:sequence>
+    </xs:complexType>
+    <xs:key name="component-statement">
+     <xs:selector xpath="cfg:statement"/>
+     <xs:field xpath="@name"/>
+    </xs:key>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="name" use="required" type="xs:string"/>
+ </xs:complexType>
+ <xs:complexType name="entity">
+  <xs:sequence>
+   <xs:element name="parameters" minOccurs="0" maxOccurs="1">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="parameter" type="parameter" maxOccurs="unbounded" />
+     </xs:sequence>
+    </xs:complexType>
+    <xs:key name="entity-parameter">
+     <xs:selector xpath="cfg:parameter" />
+     <xs:field xpath="@name" />
+    </xs:key>
+   </xs:element>
+   <xs:element name="sql" minOccurs="0">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="statement" type="statement" maxOccurs="unbounded" />
+     </xs:sequence>
+    </xs:complexType>
+    <xs:key name="entity-statement">
+     <xs:selector xpath="cfg:statement" />
+     <xs:field xpath="@name" />
+    </xs:key>
+   </xs:element>
+   <xs:element name="components" minOccurs="0">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="component" type="component" maxOccurs="unbounded" />
+     </xs:sequence>
+    </xs:complexType>
+    <xs:key name="component">
+     <xs:selector xpath="cfg:component" />
+     <xs:field xpath="@name" />
+    </xs:key>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="name" use="required" type="xs:string" />
+  <xs:attribute name="extends" type="xs:string" />
+  <xs:attribute name="cache" type="cacheType" />
+ </xs:complexType>
+ <xs:element name="entity" type="entity"/>
+
+
+ <xs:simpleType name="cacheType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="nocache"></xs:enumeration>
+  </xs:restriction>
+ </xs:simpleType>
+</xs:schema>
