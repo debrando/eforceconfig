@@ -3,7 +3,7 @@
   <parent>
   	<groupId>com.google.code.eforceconfig</groupId>
   	<artifactId>eforceconfig</artifactId>
-  	<version>1.1-SNAPSHOT</version>
+  	<version>1.1</version>
   </parent>
 
   <groupId>com.google.code.eforceconfig</groupId>
