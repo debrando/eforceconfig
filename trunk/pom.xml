@@ -9,7 +9,7 @@
 
   <groupId>com.google.code.eforceconfig</groupId>
   <artifactId>eforceconfig</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <packaging>pom</packaging>
 
   <name>eforceconfig</name>
@@ -23,9 +23,9 @@
 	    </license>
     </licenses>
     <scm>
-	<url>http://code.google.com/p/eforceconfig/source/browse/trunk</url>
-        <connection>scm:svn:http://eforceconfig.googlecode.com/svn/trunk</connection>
-        <developerConnection>scm:svn:https://eforceconfig.googlecode.com/svn/trunk</developerConnection>
+	<url>http://code.google.com/p/eforceconfig/source/browse/tags/eforceconfig-1.1</url>
+        <connection>scm:svn:http://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.1</connection>
+        <developerConnection>scm:svn:https://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.1</developerConnection>
     </scm>
 	<developers>
 	    <developer>
