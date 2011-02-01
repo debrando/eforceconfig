@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>6</version>
+  </parent>
+
+  <groupId>com.google.code.eforceconfig</groupId>
+  <artifactId>eforceconfig</artifactId>
+  <version>1.1</version>
+  <packaging>pom</packaging>
+
+  <name>eforceconfig</name>
+  <description>A simple java configuration framework based on XML</description>
+  <url>http://code.google.com/p/eforceconfig/</url>
+    <licenses>
+	    <license>
+	      <name>The Apache Software License, Version 2.0</name>
+	      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	      <distribution>repo</distribution>
+	    </license>
+    </licenses>
+    <scm>
+	<url>http://code.google.com/p/eforceconfig/source/browse/tags/eforceconfig-1.1</url>
+        <connection>scm:svn:http://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.1</connection>
+        <developerConnection>scm:svn:https://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.1</developerConnection>
+    </scm>
+	<developers>
+	    <developer>
+	      <id>agariboldi</id>
+	      <name>Andrea Amerigo Aristodemo Gariboldi</name>
+	      <email>andrea.gariboldi@gmail.com</email>
+	    </developer>
+	</developers>
+
+  <modules>
+    <module>eforceconfig-core</module>
+    <module>eforceconfig-jdbc</module>
+    <module>eforceconfig-servlet</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+	    <plugins>
+	      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<configuration>
+		  <source>1.5</source>
+		  <target>1.5</target>
+		</configuration>
+	      </plugin>
+	    </plugins>
+    </pluginManagement>
+  </build>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
