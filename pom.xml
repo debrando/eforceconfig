@@ -23,9 +23,9 @@
 	    </license>
     </licenses>
     <scm>
-	    <url>http://code.google.com/p/eforceconfig/source/browse/#svn%2Ftrunk/tags/eforceconfig-1.0</url>
-        <connection>scm:svn:http://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.0</connection>
-        <developerConnection>scm:svn:https://eforceconfig.googlecode.com/svn/tags/eforceconfig-1.0</developerConnection>
+	<url>http://code.google.com/p/eforceconfig/source/browse/trunk</url>
+        <connection>scm:svn:http://eforceconfig.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://eforceconfig.googlecode.com/svn/trunk</developerConnection>
     </scm>
 	<developers>
 	    <developer>
