@@ -1,0 +1,1 @@
+a simple stupid configuration framework for java applications
